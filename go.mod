@@ -1,3 +1,3 @@
-module suxin2017.com/color
+module github.com/suxin2017/color
 
 go 1.15
