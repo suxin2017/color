@@ -2,7 +2,7 @@ package color
 
 import (
 	"fmt"
-	"suxin2017.com/color"
+	"github.com/suxin2017/color"
 	"testing"
 )
 
