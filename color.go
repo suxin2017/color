@@ -1,17 +1,21 @@
+/**
+终端颜色显示
+*/
 package color
 
 import (
 	"fmt"
+	"github.com/suxin2017/color/cursor"
+	"strings"
+	"time"
 )
 
 // Rainbow print rainbow color to terminal
 func Rainbow(colorOffsetStep int) {
-	for h := 0; h < 360; h += colorOffsetStep {
-		rgb, err := NewHSL(float64(h), 100/100.0, 50/100.0).HSL2RGB()
-		if err == nil {
-			rgb.BgPrint(" ")
-		}
+	for color := range RainbowColor {
+		RainbowColor[color].BgPrint(" ")
 	}
+
 }
 
 // RainbowText print rainbow text
@@ -26,17 +30,36 @@ func RainbowText(text string) {
 	}
 }
 
+func NeonLight(text string) {
+	output := strings.Split(text, "\n")
+	for {
+
+		for color := range RainbowColor {
+			for _, str := range output {
+				RainbowColor[color].Print(str)
+				fmt.Println()
+			}
+			time.Sleep(500 * time.Millisecond)
+			for _ = range output {
+				cursor.Up(1)
+				cursor.EraseLine(1)
+				cursor.EraseLine(2)
+			}
+		}
+
+	}
+}
+
 func Format(template string, a ...interface{}) string {
 	return fmt.Sprintf(template, a...)
 }
 
-func Format8BitColor(color int,text string)string{
-	return Format(colorTemplate8Bit,color,text)
+func Format8BitColor(color int, text string) string {
+	return Format(colorTemplate8Bit, color, text)
 }
-func Format8BitBgColor(color int,text string)string{
-	return Format(bgColorTemplate8Bit,color,text)
+func Format8BitBgColor(color int, text string) string {
+	return Format(bgColorTemplate8Bit, color, text)
 }
-
 
 func Black(text string) string {
 	return Format(colorTemplate4Bit, black, text)
