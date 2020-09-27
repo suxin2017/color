@@ -6,21 +6,23 @@ import (
 	"testing"
 )
 
-
-
-func TestRainbow(t *testing.T){
-	color.Rainbow(10)
+func Example() {
+	fmt.Println("hello")
+	//output: hello
+}
+func TestRainbow(t *testing.T) {
+	color.Rainbow(1)
 }
 
-func TestRainbowText(t *testing.T){
+func TestRainbowText(t *testing.T) {
 	color.RainbowText("abcdefghijklmnopqrstuvwxyz")
 }
 
-func TestFormat(t *testing.T)  {
-	fmt.Print(color.NewRGB(255,0,0).FormatColor("test"))
+func TestFormat(t *testing.T) {
+	fmt.Print(color.NewRGB(255, 0, 0).FormatColor("test"))
 }
 
-func Test4BitColor(t *testing.T){
+func Test4BitColor(t *testing.T) {
 	fmt.Println(color.Black("text"))
 	fmt.Println(color.Red("text"))
 	fmt.Println(color.Green("text"))
@@ -55,11 +57,15 @@ func Test4BitColor(t *testing.T){
 	fmt.Println(color.BgBrightWhite("text"))
 }
 
-func TestCompose(t *testing.T){
+func TestCompose(t *testing.T) {
 	fmt.Println(color.BgBrightCyan(color.BrightRed("blue bg bright green text")))
 }
 
 func Test8BitColor(t *testing.T) {
-	fmt.Println(color.Format8BitColor(196,"text"))
-	fmt.Println(color.Format8BitBgColor(196,"text"))
+	fmt.Println(color.Format8BitColor(196, "text"))
+	fmt.Println(color.Format8BitBgColor(196, "text"))
+}
+
+func TestNeonLight(t *testing.T) {
+	color.NeonLight(color.ColorIcon)
 }
