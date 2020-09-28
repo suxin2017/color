@@ -6,3 +6,10 @@
 
 # 功能
 
+![feature](./assert/feature.png)
+
+# 使用
+
+```
+cd test && go test -v
+```

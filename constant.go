@@ -37,7 +37,7 @@ const (
 	bgBrightWhite
 )
 
-const colorTemplate4Bit = "\033[1;%dm%v\033[0m"
+const colorTemplate4Bit = "\033[%dm%v\033[0m"
 const colorTemplate8Bit = "\033[38;5;%dm%v\033[0m"
 const bgColorTemplate8Bit = "\033[48;5;%dm%v\033[0m"
 const colorTemplate24Bit = "\033[38;2;%d;%d;%dm%v\033[0m"
